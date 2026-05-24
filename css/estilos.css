@@ -1,0 +1,347 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --fib:   #2e7d32;  
+  --prim:  #1565c0;  
+  --comb:  #6a1b9a;  
+  --fondo: #f5f5f5;
+  --blanco: #ffffff;
+  --texto: #212121;
+  --texto-suave: #555;
+  --borde: #ddd;
+  --radio: 10px;
+}
+
+body {
+  font-family: Georgia, serif;
+  background-color: var(--fondo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+header {
+  background-color: #1a1a2e;
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.subtitulo {
+  font-size: 1rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+main {
+  max-width: 860px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.ejercicio {
+  background-color: var(--blanco);
+  border-radius: var(--radio);
+  margin-bottom: 40px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.ejercicio-encabezado {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 28px;
+  color: white;
+}
+
+.fib-color  { background-color: var(--fib); }
+.prim-color { background-color: var(--prim); }
+.comb-color { background-color: var(--comb); }
+
+/* Número grande 01, 02, 03 */
+.numero-ejercicio {
+  font-size: 3rem;
+  font-weight: bold;
+  opacity: 0.35;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.ejercicio-encabezado h2 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.ejercicio-contexto {
+  font-size: 0.92rem;
+  opacity: 0.9;
+}
+
+/* Cuerpo del ejercicio (form + resultado) */
+.ejercicio-cuerpo {
+  padding: 28px;
+}
+
+.algoritmo-box {
+  background-color: #f9f9f9;
+  border-left: 4px solid var(--borde);
+  padding: 14px 18px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+}
+
+.algoritmo-box h3 {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  color: var(--texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.algoritmo-box p {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+.algoritmo-box code {
+  background-color: #eee;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 0.85rem;
+}
+
+.campo {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: var(--texto);
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: Georgia, serif;
+}
+
+input[type="number"]:focus {
+  border-color: #888;
+}
+
+button {
+  padding: 12px 28px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  font-family: Georgia, serif;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+#seccion-fibonacci button  { background-color: var(--fib); }
+#seccion-primos button     { background-color: var(--prim); }
+#seccion-combinado button  { background-color: var(--comb); }
+
+
+.resultado {
+  display: none;      
+  margin-top: 24px;
+  background-color: #fafafa;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.resultado h3 {
+  font-size: 1rem;
+  margin-bottom: 14px;
+  color: var(--texto-suave);
+}
+
+.tabla-filas {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.tabla-filas th {
+  background-color: var(--fib);
+  color: white;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.tabla-filas td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.tabla-filas tr:last-child td {
+  border-bottom: none;
+}
+
+.total {
+  margin-top: 14px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--texto);
+}
+
+.badge-primo {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.badge-si  { background-color: #e8f5e9; color: #2e7d32; }
+.badge-no  { background-color: #fce4ec; color: #c62828; }
+
+#detalle-primo {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+.burbujas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.burbuja {
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.burbuja-normal {
+  background-color: #ede7f6;
+  color: #4a148c;
+}
+
+.burbuja-primo {
+  background-color: var(--comb);
+  color: white;
+}
+
+#resumen-comb {
+  margin-top: 16px;
+  font-size: 0.95rem;
+  color: var(--texto-suave);
+}
+
+
+.conclusion {
+  background-color: #1a1a2e;
+  color: white;
+  padding: 40px 30px;
+  border-radius: var(--radio);
+  margin-bottom: 40px;
+}
+
+.conclusion h2 {
+  text-align: center;
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+}
+
+.conclusion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.conclusion-item {
+  text-align: center;
+}
+
+.icono {
+  font-size: 2.2rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.conclusion-item h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #ccc;
+}
+
+.conclusion-item p {
+  font-size: 0.88rem;
+  color: #999;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+@media (max-width: 700px) {
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  .ejercicio-encabezado {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .numero-ejercicio {
+    font-size: 2rem;
+  }
+
+  .conclusion-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 30px 16px;
+  }
+
+  header h1 {
+    font-size: 1.3rem;
+  }
+
+  .ejercicio-cuerpo {
+    padding: 18px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
