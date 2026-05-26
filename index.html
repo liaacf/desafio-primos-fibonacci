@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fibonacci & Primos — Arte, Cine y Literatura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- DECORACIÓN DE FONDO -->
+  <div class="geo-deco" aria-hidden="true">
+    <div class="geo-circulo geo-c1"></div>
+    <div class="geo-circulo geo-c2"></div>
+    <div class="geo-linea geo-l1"></div>
+    <div class="geo-linea geo-l2"></div>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <header class="hero" id="inicio">
+    <div class="hero-inner">
+
+      <p class="hero-eyebrow">Desafío Web · Matemáticas Aplicadas</p>
+
+      <div class="hero-titulo-wrap">
+        <h1 class="hero-titulo">
+          <span class="hero-t1">Fibonacci</span>
+          <span class="hero-amp">&</span>
+          <span class="hero-t2">Números<br>Primos</span>
+        </h1>
+        <div class="hero-deco-rect"></div>
+      </div>
+
+      <p class="hero-sub">
+        Tres problemas reales del cine, la literatura y la arquitectura<br>
+        resueltos con los patrones matemáticos más antiguos del mundo.
+      </p>
+
+      <!-- TARJETAS DE NAVEGACIÓN -->
+      <div class="nav-grid">
+
+        <a href="#ej1" class="nav-tarjeta">
+          <span class="nt-num">01</span>
+          <div class="nt-linea"></div>
+          <div class="nt-info">
+            <span class="nt-campo">Cine · Fibonacci</span>
+            <span class="nt-nombre">Montaje Cinematográfico</span>
+            <span class="nt-desc">¿Cómo crean tensión los editores de película?</span>
+          </div>
+          <span class="nt-flecha">↓</span>
+        </a>
+
+        <a href="#ej2" class="nav-tarjeta">
+          <span class="nt-num">02</span>
+          <div class="nt-linea"></div>
+          <div class="nt-info">
+            <span class="nt-campo">Videojuegos · Primos</span>
+            <span class="nt-nombre">Spawn de Enemigos</span>
+            <span class="nt-desc">¿Cómo evitan los juegos que el jugador aprenda el patrón?</span>
+          </div>
+          <span class="nt-flecha">↓</span>
+        </a>
+
+        <a href="#ej3" class="nav-tarjeta">
+          <span class="nt-num">03</span>
+          <div class="nt-linea"></div>
+          <div class="nt-info">
+            <span class="nt-campo">Pixel Art · Combinado</span>
+            <span class="nt-nombre">Texturizado Orgánico</span>
+            <span class="nt-desc">¿Cómo genera la computadora texturas que parecen hechas a mano?</span>
+          </div>
+          <span class="nt-flecha">↓</span>
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================================================
+         EJERCICIO 1 — CINE Y FIBONACCI
+         ================================================ -->
+    <article class="ejercicio" id="ej1">
+
+      <div class="ej-cabecera">
+        <div class="ej-cabecera-left">
+          <span class="ej-num">01</span>
+          <div class="ej-cats">
+            <span class="cat cat-fib">Fibonacci</span>
+            <span class="cat cat-arte">Cine &amp; Edición</span>
+          </div>
+        </div>
+        <h2 class="ej-titulo">Montaje Cinematográfico</h2>
+      </div>
+
+      <!-- PROBLEMA REAL -->
+      <div class="bloque problema-bloque">
+        <h3 class="bloque-titulo">El problema real</h3>
+        <p>En el cine de suspenso o acción, mantener planos de la misma duración <strong>aburre al espectador</strong>. Los planos largos generan calma; los cortos, urgencia. Pero cambiar duraciones sin lógica matemática produce caos visual que desgasta sin emocionar.</p>
+        <p>El editor busca crear una <strong>aceleración orgánica de la tensión</strong> — un clímax que se construya solo, sin que el espectador lo note conscientemente. Para eso necesita un patrón de duraciones que crezca de forma natural, no arbitraria.</p>
+        <div class="cita-bloque">
+          <p class="cita-texto">"El montaje no es cortar planos — es orquestar el tiempo. La duración de cada plano dicta cómo late el corazón del espectador."</p>
+          <p class="cita-autor">— Andréi Tarkovski, director soviético (1932–1986)</p>
+        </div>
+        <h3 class="bloque-titulo" style="margin-top:1.4rem">¿Por qué Fibonacci resuelve esto?</h3>
+        <p>La serie 1, 1, 2, 3, 5, 8, 13, 21... crece de forma orgánica: cada número es la suma de los dos anteriores. Al usarla <strong>en orden descendente</strong> — de los planos más largos a los más cortos — se produce un aumento de adrenalina que imita la aceleración natural de los latidos del corazón. El espectador la <em>siente</em> en el cuerpo antes de entenderla con la mente.</p>
+      </div>
+
+      <!-- ALGORITMO -->
+      <div class="bloque algo-bloque">
+        <h3 class="bloque-titulo">Cómo funciona el algoritmo</h3>
+        <p class="algo-desc">Se suman términos de Fibonacci hasta llegar lo más cerca posible de N segundos. Luego se muestran esos términos en orden descendente: el primer plano es el más largo (calma), el último dura 1 segundo (impacto).</p>
+        <pre class="codigo"><code>// Avanzar sumando Fibonacci hasta acercarse a N
+let suma = 0;
+let i = 1;
+
+while (suma < N) {
+  let fib = fibonacci(i);
+  if (suma + fib > N) break;
+  suma += fib;
+  i++;
+}
+
+// Mostrar en orden descendente
+for (let j = i - 1; j >= 1; j--) {
+  let fib = fibonacci(j);
+  resultado += fib + " segundos → ";
+}</code></pre>
+      </div>
+
+      <!-- FORMULARIO -->
+      <div class="bloque form-bloque">
+        <h3 class="bloque-titulo">Calculá tu secuencia de montaje</h3>
+        <form>
+          <div class="campo">
+            <label for="segundos-cine">Duración total del fragmento (segundos)</label>
+            <input type="number" id="segundos-cine" placeholder="Ej: 88" min="1" required>
+          </div>
+          <button type="button" class="btn btn-fib" onclick="calcularMontaje()">
+            Generar cortes de montaje →
+          </button>
+        </form>
+      </div>
+
+      <!-- CONCLUSIÓN -->
+      <div class="bloque conclusion-bloque conclusion-fib">
+        <h3 class="bloque-titulo">¿Cómo ayuda Fibonacci a este problema?</h3>
+        <p>Sin un patrón matemático, el editor decide las duraciones "a ojo" — y el resultado es arbitrario. Con Fibonacci, la aceleración del montaje sigue el mismo ritmo de crecimiento que usa la naturaleza: cada plano es la suma de los dos anteriores, igual que los pétalos de un girasol o las ramas de un árbol. El espectador no ve la matemática, pero la siente: su ritmo cardíaco sube junto a los planos porque su cerebro reconoce ese patrón como algo orgánico y real. Eso es exactamente lo que busca un buen editor.</p>
+      </div>
+
+      <!-- RESULTADO — JS escribe aquí con innerHTML -->
+      <div id="resultado-cine" class="resultado"></div>
+
+    </article>
+
+
+    <!-- ================================================
+         EJERCICIO 2 — VIDEOJUEGOS Y PRIMOS
+         ================================================ -->
+    <article class="ejercicio" id="ej2">
+
+      <div class="ej-cabecera">
+        <div class="ej-cabecera-left">
+          <span class="ej-num">02</span>
+          <div class="ej-cats">
+            <span class="cat cat-prim">Números Primos</span>
+            <span class="cat cat-arte">Videojuegos · Game Design</span>
+          </div>
+        </div>
+        <h2 class="ej-titulo">Spawn de Enemigos</h2>
+      </div>
+
+      <!-- PROBLEMA REAL -->
+      <div class="bloque problema-bloque">
+        <h3 class="bloque-titulo">El problema real</h3>
+        <p>En los juegos de naves (<em>shoot 'em ups</em>) o de supervivencia como <strong>Vampire Survivors</strong>, si los enemigos aparecen en oleadas fijas cada 5 o 10 segundos, el jugador aprende el patrón de memoria muy rápido y el juego se vuelve aburrido. Los desarrolladores necesitan que los enemigos aparezcan con un ritmo que se sienta caótico e impredecible, pero que en realidad esté <strong>controlado por código</strong>.</p>
+        <p>Si los enemigos simplemente aparecieran en momentos aleatorios sin ninguna lógica, el juego sería injusto — podrían aparecer cinco seguidos en un segundo y luego nada durante veinte. Necesitás algo que sea <em>asimétrico pero estable</em>.</p>
+        <div class="cita-bloque">
+          <p class="cita-texto">"El buen diseño de juegos es hacer que el jugador sienta que está en control, mientras en realidad vos controlás cada segundo de su experiencia."</p>
+          <p class="cita-autor">— Shigeru Miyamoto, creador de Mario, Zelda y Donkey Kong</p>
+        </div>
+        <h3 class="bloque-titulo" style="margin-top:1.4rem">¿Por qué los primos resuelven esto?</h3>
+        <p>Los números primos (2, 3, 5, 7, 11, 13, 17, 19, 23...) no tienen divisores comunes entre sí. Eso significa que sus apariciones <strong>casi nunca coinciden</strong> de forma regular. Si configurás distintos tipos de enemigos para que aparezcan en segundos primos, el jugador percibirá un flujo constante, asimétrico y desafiante — sin que el juego sea injusto. La dificultad está controlada matemáticamente, no al azar.</p>
+      </div>
+
+      <!-- ALGORITMO -->
+      <div class="bloque algo-bloque">
+        <h3 class="bloque-titulo">Cómo funciona el algoritmo</h3>
+        <p class="algo-desc">El bucle simula el paso del tiempo segundo a segundo. En cada segundo se verifica si es primo con <code>esPrimo()</code>. Si lo es, aparece un enemigo. El usuario elige cuántos segundos simular.</p>
+        <pre class="codigo"><code>// Simular el paso del tiempo en el juego
+for (let segundo = 1; segundo <= duracion; segundo++) {
+
+  if (esPrimo(segundo)) {
+    // Segundo primo: aparece enemigo
+    resultado += "Seg. " + segundo + ": ENEMIGO";
+  } else {
+    // Segundo normal: calma para el jugador
+    resultado += "Seg. " + segundo + ": —";
+  }
+}</code></pre>
+      </div>
+
+      <!-- FORMULARIO -->
+      <div class="bloque form-bloque">
+        <h3 class="bloque-titulo">Simulá una partida</h3>
+        <form>
+          <div class="campo">
+            <label for="segundos-juego">Duración de la partida (segundos, máx. 60)</label>
+            <input type="number" id="segundos-juego" placeholder="Ej: 30" min="5" max="60" required>
+          </div>
+          <button type="button" class="btn btn-prim" onclick="calcularSpawn()">
+            Simular spawn de enemigos →
+          </button>
+        </form>
+      </div>
+
+      <!-- CONCLUSIÓN -->
+      <div class="bloque conclusion-bloque conclusion-prim">
+        <h3 class="bloque-titulo">¿Cómo ayudan los primos a este problema?</h3>
+        <p>Una oleada fija cada 5 segundos se aprende en dos intentos. Una aparición en cada segundo primo es impredecible para el jugador pero completamente determinista para el código: siempre va a ser los mismos segundos, el juego es justo. Los primos distribuyen los eventos de forma asimétrica sin necesitar aleatoriedad real, lo que hace el diseño reproducible, testeable y balanceable. Eso es exactamente lo que necesita un desarrollador de videojuegos.</p>
+      </div>
+
+      <!-- RESULTADO — JS escribe aquí con innerHTML -->
+      <div id="resultado-juego" class="resultado"></div>
+
+    </article>
+
+
+    <!-- ================================================
+         EJERCICIO 3 — PIXEL ART Y COMBINADO
+         ================================================ -->
+    <article class="ejercicio" id="ej3">
+
+      <div class="ej-cabecera">
+        <div class="ej-cabecera-left">
+          <span class="ej-num">03</span>
+          <div class="ej-cats">
+            <span class="cat cat-comb">Fibonacci + Primos</span>
+            <span class="cat cat-arte">Pixel Art · Arte Digital</span>
+          </div>
+        </div>
+        <h2 class="ej-titulo">Texturizado Orgánico</h2>
+      </div>
+
+      <!-- PROBLEMA REAL -->
+      <div class="bloque problema-bloque">
+        <h3 class="bloque-titulo">El problema real</h3>
+        <p>En el arte digital y en juegos de construcción de bloques, si pintás una pared grande usando un solo color plano o un patrón que se repite regularmente, el resultado se ve <strong>artificial y aburrido</strong>. Los artistas usan "texturizado aleatorio controlado" para romper la monotonía y simular materiales reales como piedra, madera o metal desgastado.</p>
+        <p>El reto: hacer que la computadora decida automáticamente dónde poner bloques con texturas especiales (relieve, brillo, desgaste), logrando que el resultado se vea disperso y natural, <strong>sin ser verdaderamente aleatorio</strong> — porque si fuera aleatorio no se podría reproducir ni controlar.</p>
+        <div class="cita-bloque">
+          <p class="cita-texto">"La naturaleza no repite sus patrones de forma exacta, pero tampoco los genera al azar. Usa reglas matemáticas simples que producen complejidad visual."</p>
+          <p class="cita-autor">— Benoît Mandelbrot, matemático, padre de la geometría fractal</p>
+        </div>
+        <h3 class="bloque-titulo" style="margin-top:1.4rem">¿Por qué Fibonacci + Primos?</h3>
+        <p>Fibonacci define el <strong>ancho de cada sección</strong> del lienzo — sus proporciones son armónicas y el ojo las percibe como naturales (igual que una concha de caracol o una flor). Los primos dentro de esa serie actúan como <strong>filtro de asimetría</strong>: si el ancho de esa sección es un número primo, el algoritmo coloca un bloque con textura especial. Como los valores primo de Fibonacci aparecen de forma esporádica e impredecible, el patrón visual resultante imita perfectamente el desgaste natural de la piedra.</p>
+      </div>
+
+      <!-- ALGORITMO -->
+      <div class="bloque algo-bloque">
+        <h3 class="bloque-titulo">Cómo funciona el algoritmo</h3>
+        <p class="algo-desc">Para cada sección del lienzo se calcula su ancho con <code>fibonacci(i)</code>. Si ese ancho es primo, la sección recibe un bloque texturizado especial. Si no, recibe un bloque liso.</p>
+        <pre class="codigo"><code>for (let i = 1; i <= secciones; i++) {
+
+  let anchoBloque = fibonacci(i);
+
+  if (esPrimo(anchoBloque)) {
+    // Bloque con textura especial / relieve
+    resultado += "Sección " + i +
+      " (ancho: " + anchoBloque + "): ESPECIAL";
+  } else {
+    // Bloque liso base
+    resultado += "Sección " + i +
+      " (ancho: " + anchoBloque + "): liso";
+  }
+}</code></pre>
+      </div>
+
+      <!-- FORMULARIO -->
+      <div class="bloque form-bloque">
+        <h3 class="bloque-titulo">Generá tu lienzo de bloques</h3>
+        <form>
+          <div class="campo">
+            <label for="secciones-arte">Cantidad de secciones del lienzo</label>
+            <input type="number" id="secciones-arte" placeholder="Ej: 12" min="3" max="20" required>
+          </div>
+          <button type="button" class="btn btn-comb" onclick="calcularPixelArt()">
+            Generar texturizado →
+          </button>
+        </form>
+      </div>
+
+      <!-- CONCLUSIÓN -->
+      <div class="bloque conclusion-bloque conclusion-comb">
+        <h3 class="bloque-titulo">¿Cómo ayudan Fibonacci y los primos a este problema?</h3>
+        <p>Usar solo colores aleatorios produce caos que no se puede controlar ni reproducir. Usar un patrón fijo produce algo aburrido y artificial. Fibonacci + primos resuelven ambos problemas: Fibonacci da las proporciones armónicas que hacen que las secciones se vean bien juntas, y los primos dentro de esa serie determinan de forma asimétrica y no periódica dónde va la textura especial. El resultado parece hecho a mano por un artista, pero fue generado por diez líneas de código.</p>
+      </div>
+
+      <!-- RESULTADO — JS escribe aquí con innerHTML -->
+      <div id="resultado-arte" class="resultado"></div>
+
+    </article>
+
+
+    <!-- ======== CONCLUSIÓN ======== -->
+    <section class="conclusion">
+      <div class="concl-inner">
+        <p class="concl-eyebrow">Reflexión final</p>
+        <h2 class="concl-titulo">El lenguaje secreto<br><em>del universo</em></h2>
+        <p class="concl-intro">Fibonacci y los números primos no son abstracciones académicas. Son patrones que aparecen solos en la naturaleza, en el arte y en la tecnología — y que los programadores y diseñadores llevan décadas redescubriendo para resolver problemas concretos.</p>
+        <div class="concl-grid">
+          <div class="concl-item">
+            <div class="concl-icono">🎬</div>
+            <h3>En el cine</h3>
+            <p>La aceleración Fibonacci en el montaje imita el ritmo de los latidos del corazón. El espectador la siente en el cuerpo antes de entenderla con la mente.</p>
+          </div>
+          <div class="concl-item">
+            <div class="concl-icono">🎮</div>
+            <h3>En los videojuegos</h3>
+            <p>Los primos permiten diseñar dificultad controlada sin aleatoriedad real. El juego es impredecible para el jugador, pero completamente determinista para el código.</p>
+          </div>
+          <div class="concl-item">
+            <div class="concl-icono">🎨</div>
+            <h3>En el arte digital</h3>
+            <p>Fibonacci da proporción armónica y los primos dan asimetría natural. Juntos permiten que una computadora genere texturas que parecen hechas a mano por un artista.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <div class="pie-inner">
+      <p class="pie-titulo">Matemáticas que resuelven problemas:<br>Fibonacci y Números Primos en la vida real</p>
+      <div class="pie-links">
+        <a href="#inicio" class="pie-link">↑ Inicio</a>
+        <a href="#" class="pie-link">Repositorio Git →</a>
+        <a href="#" class="pie-link">Página publicada →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
